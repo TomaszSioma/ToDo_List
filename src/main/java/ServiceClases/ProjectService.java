@@ -22,6 +22,14 @@ public class ProjectService {
       }
   }
 
+  public void readOne() {
+        try {
+
+        } catch (NullPointerException e) {
+            System.out.println("Plik jest pusty");
+        }
+  }
+
     public void saveAll(){
         this.repository.saveALL();
     }

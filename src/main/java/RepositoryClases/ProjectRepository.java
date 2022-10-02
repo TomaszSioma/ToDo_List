@@ -3,11 +3,13 @@ package RepositoryClases;
 import PrimaryClases.Project;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -52,5 +54,15 @@ public class ProjectRepository {
             this.projects.forEach(project -> {
                 System.out.println("Załadowano projekty: " + project.getTitle());
             });
+    }
+    public void readOne(String projectTitle) throws FileNotFoundException {
+
+        Gson gson = new Gson();
+        FileReader fr = new FileReader("./projectList.json");
+        System.out.println(projectTitle);
+    }
+
+    public List<Project> projectsList (String projectTitle) {
+        return projects;
     }
 }
