@@ -1,5 +1,6 @@
 package UsersAction;
 
+import AlgorithmicClasses.ChoiceMenu;
 import ServiceClases.ProjectService;
 
 import java.util.Scanner;
@@ -46,7 +47,11 @@ public class ChoiceUserPanel {
                             choiceTwo();
                             break;
                         case 3:
-                            System.out.println("3. Działa");
+                            System.out.println("1. Stwórz nowy Task");
+                            System.out.println("2. Zapisz do pliku");
+                            System.out.println("0. Powrót");
+                            ChoiceMenu choicethree = new ChoiceMenu();
+                            choicethree.newTask(choice);
                             break;
                         case 4:
                             System.out.println("4. Działa");
