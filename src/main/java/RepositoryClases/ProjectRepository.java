@@ -55,7 +55,7 @@ public class ProjectRepository {
 
     public void readALL() throws IOException {
 
-        FileReader fr = new FileReader("./projectList.csv");
+        FileReader fr = new FileReader("./projectList.txt");
         if (!projects.isEmpty()) {
             List<String> projectList = Files.readAllLines(Paths.get("./projectList.txt"));
             projectList.forEach(System.out::println);

@@ -1,10 +1,20 @@
 package AlgorithmicClasses;
 
 import ServiceClases.ProjectService;
+import ServiceClases.TaskService;
+
+import java.util.Scanner;
 
 public class ChoiceMenu {
     private int choice;
-    private ProjectService newProjectAdd;
+    private TaskService newTaskAdd;
+
+    Scanner scanner = new Scanner(System.in);
+
+    public String createNewString(Scanner scanner) {
+        String taskTitle = scanner.nextLine();
+        return taskTitle;
+    }
 
 
     public void newTask(int choice) {
@@ -14,10 +24,10 @@ public class ChoiceMenu {
                 if (choice > 0 && choice < 3 && choice != 0) {
                     switch (choice) {
                         case 1:
-                            this.newProjectAdd.readALL();
+                            this.newTaskAdd.addNewTask(this.createNewString(scanner));
                             break;
                         case 2:
-                            this.newProjectAdd.saveAll();
+                            this.newTaskAdd.saveAll();
                             System.out.println("Zapisano dane do pliku");
                             break;
                     }

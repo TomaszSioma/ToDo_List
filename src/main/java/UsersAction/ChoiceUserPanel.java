@@ -2,6 +2,7 @@ package UsersAction;
 
 import AlgorithmicClasses.ChoiceMenu;
 import ServiceClases.ProjectService;
+import ServiceClases.TaskService;
 
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class ChoiceUserPanel {
 
     Scanner scanner = new Scanner(System.in);
     ProjectService newProjectAdd = new ProjectService();
+    TaskService newTaskAdd = new TaskService();
 
     public void ChoiceLogic() {
 
@@ -50,8 +52,7 @@ public class ChoiceUserPanel {
                             System.out.println("1. Stwórz nowy Task");
                             System.out.println("2. Zapisz do pliku");
                             System.out.println("0. Powrót");
-                            ChoiceMenu choicethree = new ChoiceMenu();
-                            choicethree.newTask(choice);
+                           choiceThree();
                             break;
                         case 4:
                             System.out.println("4. Działa");
@@ -134,9 +135,9 @@ public class ChoiceUserPanel {
                                     break;
                             }
                         } else if (choiceTwo < 0 || choiceTwo > 2) {
-                            System.out.println("Liczba po za zakresem, podaj proszę lizbę z przedziału od 0 do 8");
+                            System.out.println("Liczba po za zakresem, podaj proszę lizbę z przedziału od 0 do 2");
                         } else if (choiceTwo == 0) {
-                            System.out.println("Podaj liczbę od 0 do 8");
+                            System.out.println("Podaj liczbę od 0 do 2");
                             break;
                         }
                     } catch (NumberFormatException e) {
@@ -144,6 +145,35 @@ public class ChoiceUserPanel {
                     }
                 }
             }
+
+    public void choiceThree () {
+        int choiceThree = -1;
+
+        while (choiceThree != 0) {
+            choiceThree = Integer.parseInt(scanner.nextLine());
+            try {
+                if (choiceThree > 0 && choiceThree < 3 && choiceThree!= 0) {
+                    switch (choiceThree) {
+                        case 1:
+                            System.out.println("Podaj nazwę tasku");
+                            this.newTaskAdd.addNewTask(this.createNewString(scanner));
+                            break;
+                        case 2:
+                            this.newTaskAdd.saveAll();
+                            System.out.println("Zapisano dane do pliku");
+                            break;
+                    }
+                } else if (choiceThree < 0 || choiceThree > 2) {
+                    System.out.println("Liczba po za zakresem, podaj proszę lizbę z przedziału od 0 do 2");
+                } else if (choiceThree == 0) {
+                    System.out.println("Podaj liczbę od 0 do 8");
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Wpisany ciąg nie jest liczbą, proszę spróbować jescze raz");
+            }
+        }
+    }
         }
 
 
